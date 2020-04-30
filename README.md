@@ -1,1 +1,2 @@
-# ib-color-naming
+# IB Color Naming Model
+
