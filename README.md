@@ -6,7 +6,7 @@ Noga Zaslavsky, Charles Kemp, Terry Regier, and Naftali Tishby (2018).
 Efficient compression in color naming and its evolution. *PNAS*, 115(31):7937– 7942.
 https://doi.org/10.1073/pnas.1800521115 
 
-[![Efficient compression in color naming and its evolution](http://img.youtube.com/vi/4nJ35y9iYiM/0.jpg)](https://www.youtube.com/watch?v=4nJ35y9iYiM&feature=emb_logo)
+[![Efficient compression in color naming and its evolution](https://www.nogsky.com/publication/2018a-pnas/featured.png)](https://www.youtube.com/watch?v=4nJ35y9iYiM&feature=emb_logo)
 
 ### Usage
 
