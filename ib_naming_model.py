@@ -1,6 +1,4 @@
-import os
 import pickle
-from urllib.request import urlretrieve
 from zipfile import ZipFile
 from tools import *
 
