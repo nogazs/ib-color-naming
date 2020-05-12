@@ -21,7 +21,8 @@ The model is composed of the following components:
 - `pM`	— capacity-achieving prior over color chips
 - `pU_M` — speaker's mental representations, m(u)
 - `betas` —	the values of beta used for the reverse deterministic annealing schedule
-- `IB_curve` —	the IB curve defined by (I_beta(M;W), I_beta(W;U))
+- `IB_curve` —	the IB theoretical bound, defined by <img src="https://latex.codecogs.com/gif.latex?(I_{\beta}(M;W), I_{\beta}(W;U)) " /> 
+
 - `qW_M`	—	the optimal IB encoders (color naming systems) for each value of beta
 
 See the paper for more details on each component.
