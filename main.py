@@ -29,7 +29,7 @@ def main():
     # let's plot a mode map!
     plt.figure(figsize=(6.4, 2.5))
     qW_M = model.qW_M[500]
-    mode_map(qW_M, model)
+    mode_map(qW_M, model.pM)
     plt.tight_layout()
 
 
