@@ -31,7 +31,7 @@ and implements useful functions for evaluating data.
 
 ### Requirements
 
-Standard scientific installation of python.  
+A standard scientific installation of python is required.  
 The package `zipfile` is used when downloading the model for the first time. This can also be done manually by
 downloading the model's file from  
 ```https://www.dropbox.com/s/70w953orv27kz1o/IB_color_naming_model.zip?dl=1```  
