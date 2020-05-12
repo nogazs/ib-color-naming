@@ -20,7 +20,7 @@ def main():
     plt.xlim([0, H(model.pM)])
     plt.ylim([0, model.I_MU + 0.1])
 
-    # generate fake data and fit to the mdoel
+    # generate fake data and fit an optimal IB system
     pW_M_fake = np.random.rand(330, 10)
     pW_M_fake /= pW_M_fake.sum(axis=1)[:, None]
     print(model.complexity(pW_M_fake), model.accuracy(pW_M_fake))
