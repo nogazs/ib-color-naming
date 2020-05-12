@@ -9,8 +9,7 @@ DEFAULT_MODEL_URL = 'https://www.dropbox.com/s/70w953orv27kz1o/IB_color_naming_m
 
 
 def load_model(filename=None):
-    if not os.path.isdir('./models'):
-        os.mkdir('./models')
+    ensure_dir('./models')
     if filename is None:
         filename = './models/IB_color_naming_model/model.pkl'
         if not os.path.isfile(filename):

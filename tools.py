@@ -1,6 +1,9 @@
 import logging
+import os
+from urllib.request import urlretrieve
 import numpy as np
 from scipy.special import logsumexp
+from skimage import color
 
 PRECISION = 1e-16
 
@@ -16,6 +19,16 @@ def get_logger(logger_name):
     return logger
 
 
+def ensure_dir(path):
+    if not os.path.isdir(path):
+        os.makedirs(path)
+
+
+def ensure_file(file_name, url):
+    if not os.path.isfile(file_name):
+        urlretrieve(url, file_name)
+
+
 # === DISTRIBUTIONS ===
 
 def marginal(pXY, axis=1):
@@ -26,7 +39,7 @@ def marginal(pXY, axis=1):
 def conditional(pXY):
     """:return  pY_X """
     pX = pXY.sum(axis=1, keepdims=True)
-    return np.where(pX > PRECISION, pXY/pX, 1/pXY.shape[1])
+    return np.where(pX > PRECISION, pXY / pX, 1 / pXY.shape[1])
 
 
 def joint(pY_X, pX):
@@ -43,7 +56,7 @@ def bayes(pY_X, pX):
     """:return pX_Y """
     pXY = joint(pY_X, pX)
     pY = marginalize(pY_X, pX)
-    return np.where(pY > PRECISION, pXY.T/pY, 1/pXY.shape[0])
+    return np.where(pY > PRECISION, pXY.T / pY, 1 / pXY.shape[0])
 
 
 def softmax(dxy, beta=1, axis=None):
@@ -89,3 +102,15 @@ def gNID(pW_X, pV_X, pX):
     pVV = (pV_X * pX).T.dot(pV_X)
     score = 1 - MI(pWV) / (np.max([MI(pWW), MI(pVV)]))
     return score
+
+
+# COLOR TRANSFORMATIONS
+
+def lab2rgb(x):
+    if len(x.shape) == 2:
+        return color.lab2rgb(x[None])[0]
+    elif len(x.shape) == 1:
+        return color.lab2rgb(x[None, None])[0, 0]
+    else:
+        return color.lab2rgb(x)
+
