@@ -9,8 +9,8 @@ https://doi.org/10.1073/pnas.1800521115
 
 ### Usage
 
-Run `python main.py` to see a simple demo.
-This demo shows how to load the model, evaluate new naming data (with respect to the WCS color naming grid),
+Run `python main.py` to see a simple demo,
+which shows how to load the model, evaluate new naming data (with respect to the WCS color naming grid),
 and plot mode maps.
 
 ### Model
@@ -26,4 +26,4 @@ The model is composed of the following components:
 See the paper for more details on each component.
 
 The class `IBNamingModel` allows easy access to the model,
-and implements useful functions functions for evaluating data. 
+and implements useful functions for evaluating data. 
