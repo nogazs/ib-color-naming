@@ -1,6 +1,7 @@
 # IB Color Naming Model
 
-Python wrapper for the color naming model proposed in the paper:  
+Python wrapper for the color naming model proposed in the paper:
+
 Noga Zaslavsky, Charles Kemp, Terry Regier, and Naftali Tishby (2018).
 Efficient compression in color naming and its evolution. *PNAS*, 115(31):7937– 7942.
 https://doi.org/10.1073/pnas.1800521115 
@@ -8,12 +9,13 @@ https://doi.org/10.1073/pnas.1800521115
 
 ### Usage
 
-Run `python main` to see a simple demo.
-This demo shows how to load the model, generate predictions for new data, and plotting mode maps.
+Run `python main.py` to see a simple demo.
+This demo shows how to load the model, evaluate new naming data (with respect to the WCS color naming grid),
+and plot mode maps.
 
-### Model components
+### Model
 
-The model .pkl file contains a python dict object with the following fields:
+The model is composed of the following components:
 
 - `pM`	— capacity-achieving prior over color chips
 - `pU_M` — speaker's mental representations, m(u)
@@ -21,4 +23,7 @@ The model .pkl file contains a python dict object with the following fields:
 - `IB_curve` —	the IB curve defined by (I_beta(M;W), I_beta(W;U))
 - `qW_M`	—	the optimal IB encoders (color naming systems) for each value of beta
 
-See the paper for more details.
+See the paper for more details on each component.
+
+The class `IBNamingModel` allows easy access to the model,
+and implements useful functions functions for evaluating data. 
