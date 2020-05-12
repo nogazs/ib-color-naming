@@ -10,7 +10,8 @@ https://doi.org/10.1073/pnas.1800521115
 ### Usage
 
 Run `python main.py` to see a simple demo,
-which shows how to load the model, evaluate new naming data (with respect to the WCS color naming grid),
+which shows how to load the model, plot the theoretical bound,
+evaluate new naming data (with respect to the WCS color naming grid),
 and plot mode maps.
 
 ### Model
