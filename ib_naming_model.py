@@ -1,6 +1,7 @@
 import pickle
 from zipfile import ZipFile
 from tools import *
+import figrues as figs
 
 LOGGER = get_logger('ib_naming_model')
 DEFAULT_MODEL_URL = 'https://www.dropbox.com/s/70w953orv27kz1o/IB_color_naming_model.zip?dl=1'
@@ -43,7 +44,7 @@ class IBNamingModel(object):
         """
         pMW = qW_M * self.pM
         pM_W = pMW.T / pMW.sum(axis=0)[:, None]
-        return pM_W.dot(self.pY_M)
+        return pM_W.dot(self.pU_M)
 
     def complexity(self, pW_M):
         """
@@ -86,3 +87,9 @@ class IBNamingModel(object):
         qW_M_fit = self.qW_M[bl_ind]
         gnid = gNID(pW_M, qW_M_fit, self.pM)
         return epsilon, gnid, bl, qW_M_fit
+
+    def mode_map(self, pW_M):
+        """
+        :param pW_M: encoder (naming system)
+        """
+        figs.mode_map(pW_M, self.pM)
