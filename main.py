@@ -20,6 +20,11 @@ def main():
     plt.xlim([0, H(model.pM)])
     plt.ylim([0, model.I_MU + 0.1])
 
+    # generate fake (random) data and fit an optimal IB system
+    pW_M_fake = np.random.rand(330, 10)
+    pW_M_fake /= pW_M_fake.sum(axis=1)[:, None]
+    print(model.fit(pW_M_fake)[:-1])
+
     # let's plot a mode map!
     indx = 500
     qW_M = model.qW_M[indx]
