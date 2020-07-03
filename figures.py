@@ -38,6 +38,20 @@ def cnum2ind(cnum):
     return _CNUMS_WCS_COR[cnum]
 
 
+def code2cnum(code):
+    """
+    convert WCS palette code to chip number
+    Example: code2cnum('C22') returns 100
+    :param c: string
+    :return:
+    """
+    if code[0] == 'A':
+        return _WCS_COR_CNUMS['A0']
+    if code[0] == 'J':
+        return _WCS_COR_CNUMS['J0']
+    return _WCS_COR_CNUMS[code]
+
+
 def grid2img(grid, small_grid=False, white_space=True):
     d = grid.shape[1]
     img = np.ones((N_ROWS, N_COLS + 1, d))
