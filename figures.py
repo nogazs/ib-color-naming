@@ -26,7 +26,7 @@ WCS_CNUMS = pd.read_csv('./data/%s' % WCS_CNUM_FILE, delimiter='\t', header=None
 WCS_CHIPS = __CHIPS[['L*', 'a*', 'b*']].values
 WCS_CHIPS_RGB = lab2rgb(WCS_CHIPS)
 
-_CNUMS_WCS_COR = dict(zip(WCS_CNUMS[:, 0], [(ROWS.index(WCS_CNUMS[cnum - 1, 1]), WCS_CNUMS[cnum - 1, 2]) for cnum in WCS_CNUMS[:, 0]]))
+CNUMS_WCS_COR = dict(zip(WCS_CNUMS[:, 0], [(ROWS.index(WCS_CNUMS[cnum - 1, 1]), WCS_CNUMS[cnum - 1, 2]) for cnum in WCS_CNUMS[:, 0]]))
 _WCS_COR_CNUMS = dict(zip(WCS_CNUMS[:, 3], WCS_CNUMS[:, 0]))
 
 
@@ -35,7 +35,7 @@ def cnum2ind(cnum):
     convert chip number to location in the WCS palette
     Example: cnum2ind(100) returns (2,22)
     """
-    return _CNUMS_WCS_COR[cnum]
+    return CNUMS_WCS_COR[cnum]
 
 
 def code2cnum(code):
