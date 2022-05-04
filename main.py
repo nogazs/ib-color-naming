@@ -2,7 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import ib_naming_model
 from tools import *
-from figrues import mode_map
+from figures import mode_map
 
 LOGGER = get_logger('main')
 
