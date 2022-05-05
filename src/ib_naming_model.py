@@ -1,7 +1,7 @@
 import pickle
 from zipfile import ZipFile
 from .tools import *
-import .figures as figs
+from .figures import mode_map
 
 LOGGER = get_logger('ib_naming_model')
 DEFAULT_MODEL_URL = 'https://www.dropbox.com/s/70w953orv27kz1o/IB_color_naming_model.zip?dl=1'
@@ -92,4 +92,4 @@ class IBNamingModel(object):
         """
         :param pW_M: encoder (naming system)
         """
-        figs.mode_map(pW_M, self.pM)
+        mode_map(pW_M, self.pM)
