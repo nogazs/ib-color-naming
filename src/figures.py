@@ -2,6 +2,7 @@ import matplotlib.pyplot as plt
 import string
 import pandas as pd
 from .tools import *
+import os
 
 LOGGER = get_logger('figures')
 
@@ -16,12 +17,14 @@ ROWS = [string.ascii_uppercase[i] for i in range(10)]
 
 
 # init module
-ensure_dir('./data')
-ensure_file('./data/%s' % WCS_CIELAB_FILE, 'http://www1.icsi.berkeley.edu/wcs/data/cnum-maps/cnum-vhcm-lab-new.txt')
-ensure_file('./data/%s' % WCS_CNUM_FILE, 'http://www1.icsi.berkeley.edu/wcs/data/20021219/txt/chip.txt')
+curr_path = os.path.dirname(os.path.abspath(__file__))
+data_dir = curr_path + '/../data/'
+ensure_dir(data_dir)
+ensure_file(data_dir + WCS_CIELAB_FILE, 'http://www1.icsi.berkeley.edu/wcs/data/cnum-maps/cnum-vhcm-lab-new.txt')
+ensure_file(data_dir + WCS_CNUM_FILE, 'http://www1.icsi.berkeley.edu/wcs/data/20021219/txt/chip.txt')
 
-__CHIPS = pd.read_csv('./data/%s' % WCS_CIELAB_FILE, delimiter='\t').sort_values(by='#cnum')
-WCS_CNUMS = pd.read_csv('./data/%s' % WCS_CNUM_FILE, delimiter='\t', header=None).values
+__CHIPS = pd.read_csv(data_dir + WCS_CIELAB_FILE, delimiter='\t').sort_values(by='#cnum')
+WCS_CNUMS = pd.read_csv(data_dir + WCS_CNUM_FILE, delimiter='\t', header=None).values
 WCS_CHIPS = __CHIPS[['L*', 'a*', 'b*']].values
 WCS_CHIPS_RGB = lab2rgb(WCS_CHIPS)
 

@@ -7,18 +7,18 @@ LOGGER = get_logger('ib_naming_model')
 DEFAULT_MODEL_URL = 'https://www.dropbox.com/s/70w953orv27kz1o/IB_color_naming_model.zip?dl=1'
 
 
-def load_model(filename=None):
-    ensure_dir('./models')
+def load_model(filename=None, model_dir='./models/'):
+    ensure_dir(model_dir)
     if filename is None:
-        filename = './models/IB_color_naming_model/model.pkl'
-        if not os.path.isfile(filename):
-            LOGGER.info('downloading default model from %s  ...' % DEFAULT_MODEL_URL)
-            urlretrieve(DEFAULT_MODEL_URL, './models/temp.zip')
-            LOGGER.info('extracting model files ...')
-            with ZipFile('./models/temp.zip', 'r') as zf:
-                zf.extractall('./models')
-                os.remove('./models/temp.zip')
-                os.rename('./models/IB_color_naming_model/IB_color_naming.pkl', filename)
+        filename = model_dir + 'IB_color_naming_model/model.pkl'
+    if not os.path.isfile(filename):
+        LOGGER.info('downloading default model from %s  ...' % DEFAULT_MODEL_URL)
+        urlretrieve(DEFAULT_MODEL_URL, model_dir + 'temp.zip')
+        LOGGER.info('extracting model files ...')
+        with ZipFile(model_dir + 'temp.zip', 'r') as zf:
+            zf.extractall(model_dir)
+            os.remove(model_dir + 'temp.zip')
+            os.rename(model_dir + 'IB_color_naming_model/IB_color_naming.pkl', filename)
     with open(filename, 'rb') as f:
         LOGGER.info('loading model from file: %s' % filename)
         model_data = pickle.load(f)
