@@ -1,7 +1,7 @@
 import pickle
 from zipfile import ZipFile
 from .tools import *
-from .figures import mode_map
+import .figures as figs
 
 LOGGER = get_logger('ib_naming_model')
 DEFAULT_MODEL_URL = 'https://www.dropbox.com/s/70w953orv27kz1o/IB_color_naming_model.zip?dl=1'
@@ -33,7 +33,7 @@ class IBNamingModel(object):
         self.I_MU = MI(pU_M * self.pM)
         self.betas = betas
         self.IB_curve = IB_curve
-        self.qW_M = [np.asarray(q, dtype='float32') for q in qW_M]
+        self.qW_M = qW_M
         self.qW_M_orig = None
         self.F = IB_curve[0] - betas * IB_curve[1]
 
@@ -79,26 +79,17 @@ class IBNamingModel(object):
             bl - beta_l, the value of beta that was fitted to pW_M
             qW_M_fit - the optimal IB system at bl
         """
-        bl_ind, el = self.fit_ind(pW_M)
-        bl = self.betas[bl_ind]
-        qW_M_fit = self.qW_M[bl_ind]
-        gnid = gNID(pW_M, qW_M_fit, self.pM)
-        return el, gnid, bl, qW_M_fit
-
-    def fit_ind(self, pW_M):
         Fl = self.complexity(pW_M) - self.betas * self.accuracy(pW_M)
         dFl = Fl - self.F
         bl_ind = dFl.argmin()
         bl = self.betas[bl_ind]
-        el = dFl.min() / bl
-        return bl_ind, el
-
-    def scores(self, pW_M):
-        el, gnid, _, _ = self.fit(pW_M)
-        return el, gnid
+        epsilon = dFl.min() / bl
+        qW_M_fit = self.qW_M[bl_ind]
+        gnid = gNID(pW_M, qW_M_fit, self.pM)
+        return epsilon, gnid, bl, qW_M_fit
 
     def mode_map(self, pW_M):
         """
         :param pW_M: encoder (naming system)
         """
-        mode_map(pW_M, self.pM)
+        figs.mode_map(pW_M, self.pM)

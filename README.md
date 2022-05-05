@@ -1,6 +1,6 @@
 # IB Color Naming Model
 
-Python wrapper for the color naming model proposed in the paper:
+Python package for accessing the color naming model from:
 
 Noga Zaslavsky, Charles Kemp, Terry Regier, and Naftali Tishby (2018).
 Efficient compression in color naming and its evolution. *PNAS*, 115(31):7937– 7942.
