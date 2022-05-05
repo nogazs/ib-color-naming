@@ -1,8 +1,6 @@
-import numpy as np
 import matplotlib.pyplot as plt
-import ib_naming_model
-from tools import *
-from figrues import mode_map
+from src import ib_naming_model
+from src.tools import *
 
 LOGGER = get_logger('main')
 

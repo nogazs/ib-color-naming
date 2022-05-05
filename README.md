@@ -36,3 +36,21 @@ and implements useful functions for evaluating data.
 - The package `zipfile` is used only when downloading the model for the first time. This can also be done manually by
 downloading the model's file from  [here](https://www.dropbox.com/s/70w953orv27kz1o/IB_color_naming_model.zip?dl=1)
 and unzipping it under a `./models` directory.
+
+### Cite
+
+```
+@article{Zaslavsky2018efficient,
+    author = {Zaslavsky, Noga and Kemp, Charles and Regier, Terry and Tishby, Naftali},
+    title = {Efficient compression in color naming and its evolution},
+    journal = {Proceedings of the National Academy of Sciences}
+    volume = {115},
+    number = {31},
+    pages = {7937--7942},
+    year = {2018},
+    doi = {10.1073/pnas.1800521115},
+    publisher = {National Academy of Sciences},
+    issn = {0027-8424}
+}
+```
+Link to repo: https://github.com/nogazs/ib-color-naming

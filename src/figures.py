@@ -1,8 +1,7 @@
 import matplotlib.pyplot as plt
 import string
 import pandas as pd
-
-from tools import *
+from .tools import *
 
 LOGGER = get_logger('figures')
 
