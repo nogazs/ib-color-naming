@@ -39,7 +39,7 @@ and unzipping it under a `./models` directory.
 
 ### Cite
 
-```
+```bibtex
 @article{Zaslavsky2018efficient,
     author = {Zaslavsky, Noga and Kemp, Charles and Regier, Terry and Tishby, Naftali},
     title = {Efficient compression in color naming and its evolution},
