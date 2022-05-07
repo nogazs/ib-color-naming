@@ -8,14 +8,14 @@ https://doi.org/10.1073/pnas.1800521115
 
 [![Efficient compression in color naming and its evolution](https://www.nogsky.com/publication/2018a-pnas/featured.png)](https://www.youtube.com/watch?v=4nJ35y9iYiM&feature=emb_logo)
 
-### Usage
+## Usage
 
 Run `python main.py` to see a simple demo.
 This demo shows how to load the model, plot the theoretical bound,
 evaluate new naming data (with respect to the WCS color naming grid),
 and plot mode maps.
 
-### Model
+## Model
 
 The model is composed of the following components:
 
@@ -30,15 +30,31 @@ See the paper for more details on each component.
 The class `IBNamingModel` allows easy access to the model,
 and implements useful functions for evaluating data. 
 
-### Requirements
+## Integrating in another project
+
+If you'd like to use this model in your project, you can define this packge as a submodule by running the following command:
+
+```shell
+git submodule add https://github.com/nogazs/ib-color-naming.git ib_color_naming
+```
+
+In your python scrip, you can then import the model's module like this: 
+
+```python
+from ib_color_naming.src import ib_naming_model
+```
+If you do so, please don't forget to acknowledge this work (see citation details below).
+
+## Requirements
 
 - A standard scientific installation of python is required to use the model.  
 - The package `zipfile` is used only when downloading the model for the first time. This can also be done manually by
 downloading the model's file from  [here](https://www.dropbox.com/s/70w953orv27kz1o/IB_color_naming_model.zip?dl=1)
 and unzipping it under a `./models` directory.
 
-### Cite
+## Citation
 
+If you find this useful, please consider acknowledging this repo and citing the following paper: 
 ```bibtex
 @article{Zaslavsky2018efficient,
     author = {Zaslavsky, Noga and Kemp, Charles and Regier, Terry and Tishby, Naftali},
