@@ -43,7 +43,7 @@ In your python scrip, you can then import the model's module like this:
 ```python
 from ib_color_naming.src import ib_naming_model
 ```
-If you do so, please don't forget to acknowledge this work (see citation details below).
+If you use this code package, please don't forget to acknowledge it in your work (see citation details below).
 
 ## Requirements
 
