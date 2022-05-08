@@ -3,7 +3,7 @@
 Python package for accessing the color naming model from:
 
 Noga Zaslavsky, Charles Kemp, Terry Regier, and Naftali Tishby (2018).
-Efficient compression in color naming and its evolution. *PNAS*, 115(31):7937– 7942.
+Efficient compression in color naming and its evolution. *PNAS*, 115(31):7937–7942.
 https://doi.org/10.1073/pnas.1800521115 
 
 [![Efficient compression in color naming and its evolution](https://www.nogsky.com/publication/2018a-pnas/featured.png)](https://www.youtube.com/watch?v=4nJ35y9iYiM&feature=emb_logo)
@@ -43,14 +43,12 @@ In your python scrip, you can then import the model's module like this:
 ```python
 from ib_color_naming.src import ib_naming_model
 ```
-If you do so, please don't forget to acknowledge this work (see citation details below).
+
+Please don't forget to acknowledge this repo in your work (see citation details below).
 
 ## Requirements
 
-- A standard scientific installation of python (see `requirements.txt`).  
-- The package `zipfile` is used only when downloading the model for the first time. This can also be done manually by
-downloading the model's file from  [here](https://www.dropbox.com/s/70w953orv27kz1o/IB_color_naming_model.zip?dl=1)
-and unzipping it under a `./models` directory.
+See `requirements.txt`
 
 ## Citation
 
