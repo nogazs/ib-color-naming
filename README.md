@@ -47,7 +47,7 @@ If you do so, please don't forget to acknowledge this work (see citation details
 
 ## Requirements
 
-- A standard scientific installation of python is required to use the model.  
+- A standard scientific installation of python (see `requirements.txt`).  
 - The package `zipfile` is used only when downloading the model for the first time. This can also be done manually by
 downloading the model's file from  [here](https://www.dropbox.com/s/70w953orv27kz1o/IB_color_naming_model.zip?dl=1)
 and unzipping it under a `./models` directory.
